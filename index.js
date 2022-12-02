@@ -10,6 +10,11 @@ const app = express()
 const api_v0 = require("./routes/api/v0")
 app.use("/api/v0", api_v0)
 
+// Get highest API version
+app.get("/api", (req, res) => {
+    res.send("v0")
+})
+
 // No API
 app.get("/api/*", (req, res) => {
     res.sendStatus(404)

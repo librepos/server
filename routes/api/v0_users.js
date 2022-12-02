@@ -16,5 +16,19 @@ router.get("/version", (req, res) => {
     res.send("User Management API v0\nLibrePOS Version " + VERSION + "\n");
 })
 
+// Get users
+router.get("/get(/:selection)?", (req, res) => {
+    
+    if (req.params.selection == "all") {
+        res.json({
+            users: [
+                { name: "John" }
+            ]
+        })
+    } else {
+        res.sendStatus(404)
+    }
+})
+
 // Export
 module.exports = router
